@@ -2,26 +2,275 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.menu:checked ~ .children {
+  opacity: 0;
+  pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.menu:checked ~ .nav {
+  opacity: 1;
+  pointer-events: initial;
+}
+.menu:checked ~ .close {
+  opacity: 1;
+  top: 1rem;
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.hero-center {
+  @apply top-[60%] w-1/2 sm:top-1/2 md:p-24 !important;
+}
+
+.hero-top {
+  @apply left-8 top-4 w-16 sm:top-12 !important;
+}
+
+.skills-bottom {
+  @apply top-1/2  scale-50 opacity-0;
+}
+
+@keyframes skills-entrance {
+  0% {
+    rotate: initial;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+@keyframes skills-counter {
+  0% {
+    rotate: initial;
+  }
+
+  100% {
+    rotate: -360deg;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.skills-translate {
+  animation-delay: 1s;
+  animation-duration: 10s;
+  animation-name: skills-entrance;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+.animation-counter {
+  animation-delay: 1s;
+  animation-duration: 10s;
+  animation-name: skills-counter;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+.tile-leading,
+.tile-title {
+  transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);
+}
+
+.tile:hover .tile-leading {
+  transform: translateX(0);
+}
+
+.tile:hover .tile-title {
+  transform: translateX(0);
+}
+
+.animated-tile-1 {
+  top: 0px !important;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.animated-tile-2 {
+  transition-timing-function: ease-in-out;
+  top: 0px !important;
+  transition-duration: 300ms;
+  transition-delay: 300ms;
+}
+
+.center {
+  align-content: space-around;
+}
+
+.github-box-shadow {
+  box-shadow: 0 0 0 1px #000, 0 30px 30px rgba(0, 0, 0, 0.07),
+    0 15px 15px rgba(0, 0, 0, 0.06), 0 10px 8px rgba(0, 0, 0, 0.05),
+    0 4px 4px rgba(0, 0, 0, 0.04), 0 2px 2px rgba(0, 0, 0, 0.03);
+}
+
+.backend-tile {
+  transform: translateX(0);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.android-tile {
+  transform: translate(0, 0);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.backend-tile:hover,
+.android-tile:hover {
+  @apply -translate-y-2 translate-x-0 delay-0 duration-75 ease-out !important;
+}
+
+.backend-tile:nth-child(1) {
+  transition-delay: 0ms;
+}
+.backend-tile:nth-child(2) {
+  transition-delay: 150ms;
+}
+.backend-tile:nth-child(3) {
+  transition-delay: 300ms;
+}
+.backend-tile:nth-child(4) {
+  transition-delay: 0ms;
+}
+.backend-tile:nth-child(5) {
+  transition-delay: 150ms;
+}
+.backend-tile:nth-child(6) {
+  transition-delay: 300ms;
+}
+
+.android-tile:nth-child(1) {
+  animation-name: java-tile;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.android-tile:nth-child(2) {
+  animation-name: kotlin-tile;
+  animation-duration: 4s;
+  animation-delay: 1s;
+
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transition-delay: 150ms;
+}
+.android-tile:nth-child(3) {
+  animation-name: sqlite-tile;
+  animation-duration: 4s;
+  animation-delay: 1s;
+
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transition-delay: 300ms;
+}
+.android-tile:nth-child(4) {
+  animation-name: compose-tile;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transition-delay: 450ms;
+}
+
+.flutter-tile-main {
+  animation-name: flutter-tile-main;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  opacity: 1;
+}
+.flutter-tile-secondary {
+  animation-name: flutter-tile-secondary;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  opacity: 1;
+}
+
+@keyframes flutter-tile-main {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  80% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes flutter-tile-secondary {
+  0% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+  80% {
+    transform: translateY(90%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes java-tile {
+  25% {
+    transform: translateX(200%);
+  }
+  50% {
+    transform: translateY(200%);
+  }
+  75% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes kotlin-tile {
+  25% {
+    transform: translateY(200%);
+  }
+  50% {
+    transform: translateX(-200%);
+  }
+  75% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes compose-tile {
+  25% {
+    transform: translateX(-200%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  75% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes sqlite-tile {
+  25% {
+    transform: translateY(-200%);
+  }
+  50% {
+    transform: translateX(200%);
+  }
+  75% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
