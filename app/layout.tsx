@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' className='text-xs sm:text-base'>
       <link
         href='
 https://cdn.jsdelivr.net/npm/source-sans-pro@3.6.0/source-sans-pro.min.css

@@ -25,11 +25,11 @@
 }
 
 .hero-top {
-  @apply left-8 top-4 w-16 sm:top-12 !important;
+  @apply top-4 opacity-0 sm:top-12 md:left-8 md:w-16 md:opacity-100 !important;
 }
 
 .skills-bottom {
-  @apply top-1/2  scale-50 opacity-0;
+  @apply scale-50  opacity-0 md:top-1/2;
 }
 
 @keyframes skills-entrance {

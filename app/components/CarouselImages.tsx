@@ -12,8 +12,8 @@ export const CarouselImages = ({ isSelected, alt, src }: Props) => {
   return (
     <div
       className={`${
-        isSelected ? 'translate-y-0' : 'translate-y-full'
-      } display absolute shadow-2xl shadow-backendTileGlow z-10 mt-24 h-full w-full  overflow-hidden rounded-t-xl bg-red-500 transition-all duration-500 ease-out`}
+        isSelected ? 'opacity-1 translate-y-0' : 'translate-y-full opacity-0'
+      } display pointer-events-none absolute z-10 h-full w-[80vw] translate-x-[10vw] overflow-hidden rounded-t-xl bg-red-500 shadow-2xl shadow-backendTileGlow  transition-all duration-500 ease-out md:mt-24 md:w-full md:translate-x-0`}
     >
       <img
         src={src.toString()}

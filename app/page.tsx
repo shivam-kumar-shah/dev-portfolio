@@ -10,14 +10,13 @@ import { Android } from './components/Android';
 import { Flutter } from './components/Flutter';
 
 export default function Home() {
-
   return (
     <>
       <Intro />
-      <Frontend/>
+      <Frontend />
       <Backend />
-      <Android/>
-      <Flutter/>
+      {/* <Android/> */}
+      {/* <Flutter/> */}
     </>
   );
 }
