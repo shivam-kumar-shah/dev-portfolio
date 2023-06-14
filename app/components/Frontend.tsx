@@ -61,17 +61,28 @@ export const Frontend = () => {
     setSelectedIndex(-1);
   }
 
+  const scrollToTop = () => {
+    console.log('called');
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
   return (
     <>
       <img
         src='logo-circle.png'
         alt='Shivam Kumar'
+        onClick={scrollToTop}
         className={`${
           showAnimation ? 'hero-top' : 'hero-center'
         } fixed left-1/2 max-h-[90vh] max-w-[90vh] -translate-x-1/2 transition-all duration-500 ease-in-out sm:-translate-y-1/2  sm:translate-x-0 md:z-[45]`}
       />
 
-      <section className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 sm:mt-[40vh] md:sticky md:h-screen'>
+      <section
+        id={'frontend'}
+        className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 sm:mt-[40vh] md:sticky md:h-screen'
+      >
         <div className='mx-auto flex h-full  w-screen max-w-6xl flex-col text-center'>
           <h2 className='text-base text-darkTextSecondary'>
             Hi, I am a <br />

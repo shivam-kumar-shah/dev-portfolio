@@ -66,7 +66,10 @@ export const Flutter = () => {
   }
 
   return (
-    <section className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 md:sticky md:mt-[40vh] md:h-screen'>
+    <section
+      id={'flutter'}
+      className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 md:sticky md:mt-[40vh] md:h-screen'
+    >
       <div className='mx-auto flex h-full w-screen max-w-6xl flex-col text-center'>
         <h2 className='text-base text-darkTextSecondary'>
           and a <br />

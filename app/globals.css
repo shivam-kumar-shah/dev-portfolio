@@ -25,7 +25,7 @@
 }
 
 .hero-top {
-  @apply top-4 opacity-0 sm:top-12 md:left-8 md:w-16 md:opacity-100 !important;
+  @apply top-4 cursor-pointer opacity-0 sm:top-12 md:left-8 md:w-16 md:opacity-100 !important;
 }
 
 .skills-bottom {
