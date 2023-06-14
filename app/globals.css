@@ -93,6 +93,31 @@
   transition-delay: 300ms;
 }
 
+.contact-tile-1 {
+  top: 0px !important;
+  transition-duration: 300ms;
+  transition-delay: 0ms;
+  transition-timing-function: ease-in-out;
+}
+.contact-tile-2 {
+  top: 0px !important;
+  transition-duration: 300ms;
+  transition-delay: 300ms;
+  transition-timing-function: ease-in-out;
+}
+.social-tile-1 {
+  top: 0px !important;
+  transition-duration: 300ms;
+  transition-delay: 600ms;
+  transition-timing-function: ease-in-out;
+}
+.social-tile-2 {
+  top: 0px !important;
+  transition-duration: 300ms;
+  transition-delay: 900ms;
+  transition-timing-function: ease-in-out;
+}
+
 .center {
   align-content: space-around;
 }

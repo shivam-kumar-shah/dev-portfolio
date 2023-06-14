@@ -8,6 +8,7 @@ import './globals.css';
 import { Backend } from './components/Backend';
 import { Android } from './components/Android';
 import { Flutter } from './components/Flutter';
+import { Contact } from './components/Contact';
 
 export default function Home() {
   return (
@@ -15,8 +16,9 @@ export default function Home() {
       <Intro />
       <Frontend />
       <Backend />
-      {/* <Android/> */}
-      {/* <Flutter/> */}
+      <Android />
+      <Flutter />
+      <Contact />
     </>
   );
 }

@@ -2,12 +2,23 @@ import { useEffect, useRef, useState } from 'react';
 import { ProjectTile } from './ProjectTile';
 
 import { DiJava, DiMongodb, DiNodejs } from 'react-icons/di';
-import { SiDart, SiExpress, SiFirebase, SiFlutter, SiGraphql, SiJetpackcompose, SiKotlin, SiMaterialdesign, SiMysql, SiPostman, SiSqlite } from 'react-icons/si';
-import {IoLogoFirebase} from "react-icons/io5"
+import {
+  SiDart,
+  SiExpress,
+  SiFirebase,
+  SiFlutter,
+  SiGraphql,
+  SiJetpackcompose,
+  SiKotlin,
+  SiMaterialdesign,
+  SiMysql,
+  SiPostman,
+  SiSqlite,
+} from 'react-icons/si';
+import { IoLogoFirebase } from 'react-icons/io5';
 
 import '../globals.css';
 import { CarouselImages } from './CarouselImages';
-
 
 export const Flutter = () => {
   const [showAnimation, setShowAnimation] = useState(false);
@@ -15,15 +26,18 @@ export const Flutter = () => {
   const flutterSkillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if(entry.isIntersecting){
-        setShowAnimation(true);
-      }else{
-        setShowAnimation(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowAnimation(true);
+        } else {
+          setShowAnimation(false);
+        }
+      },
+      {
+        threshold: 0.4,
       }
-    },{
-      threshold:0.4,
-    });
+    );
     observer.observe(flutterSkillsRef.current!);
   }, []);
 
@@ -52,7 +66,7 @@ export const Flutter = () => {
   }
 
   return (
-    <section className='sticky top-0 z-[40] mt-[40vh] h-screen w-screen overflow-hidden bg-backgroundBackend px-4 pt-24 border-t-2 border-textPrimary'>
+    <section className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 md:sticky md:mt-[40vh] md:h-screen'>
       <div className='mx-auto flex h-full w-screen max-w-6xl flex-col text-center'>
         <h2 className='text-base text-darkTextSecondary'>
           and a <br />
@@ -60,23 +74,34 @@ export const Flutter = () => {
             Flutter Developer
           </span>
         </h2>
-        <div className='grid grow grid-cols-2 content-around gap-x-8'>
+        <div className='mt-10 flex grow flex-col content-around gap-x-8 md:mt-0 md:grid md:grid-cols-2 '>
           <div
-            className='relative grid grid-cols-3 grid-rows-1 gap-x-4 content-between gap-y-[100%] -translate-y-1/4'
+            className='relative grid h-96 -translate-y-1/4 grid-cols-3 grid-rows-1 content-between gap-x-4 gap-y-[100%] p-24 md:h-auto md:p-0'
             ref={flutterSkillsRef}
           >
-            <div className={`${showAnimation ? "flutter-tile-secondary": ""} github-box-shadow translate-y-full opacity-0 aspect-square w-4/5 rounded-lg bg-backgroundBackendTile p-8 transition-all duration-500 ease-in-out`}>
+            <div
+              className={`${
+                showAnimation ? 'flutter-tile-secondary' : ''
+              } github-box-shadow aspect-square w-36 translate-y-full rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5`}
+            >
               <SiDart size={'100%'} color='rgb(43, 177, 238)' />
             </div>
-            <div className={`${showAnimation ? "flutter-tile-main": ""} github-box-shadow  aspect-square w-4/5 translate-y-0 opacity-0 rounded-lg bg-backgroundBackendTile p-8 transition-all duration-500 ease-in-out `}>
+            <div
+              className={`${
+                showAnimation ? 'flutter-tile-main' : ''
+              } github-box-shadow  aspect-square w-36 translate-y-0 rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5 `}
+            >
               <SiFlutter size={'100%'} color='rgb(69, 191, 243)' />
             </div>
-            <div className={`${showAnimation ? "flutter-tile-secondary": ""} github-box-shadow translate-y-full opacity-0  aspect-square w-4/5 rounded-lg bg-backgroundBackendTile p-8 transition-all duration-500 ease-in-out `}>
+            <div
+              className={`${
+                showAnimation ? 'flutter-tile-secondary' : ''
+              } github-box-shadow aspect-square w-36 translate-y-full  rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5 `}
+            >
               <SiFirebase size={'100%'} color='rgb(244, 196, 61)' />
             </div>
-           
           </div>
-          <div className=' text-left text-2xl'>
+          <div className='px-8 text-left text-2xl md:px-0'>
             <h3 className='mb-4 font-title text-3xl font-bold  uppercase text-darkTextPrimary'>
               Projects
             </h3>
