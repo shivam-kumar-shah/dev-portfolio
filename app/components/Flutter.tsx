@@ -72,7 +72,7 @@ export const Flutter = () => {
       id={'flutter'}
       className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 md:sticky md:mt-[40vh] md:h-screen'
     >
-      <div className='mx-auto flex h-full w-screen max-w-6xl flex-col text-center'>
+      <div className='mx-auto flex h-full w-full max-w-6xl flex-col text-center'>
         <h2 className='text-base text-darkTextSecondary'>
           and a <br />
           <span className='mb-2 font-title text-6xl font-bold text-darkTextPrimary'>
@@ -81,27 +81,27 @@ export const Flutter = () => {
         </h2>
         <div className='mt-10 flex grow flex-col content-around gap-x-8 md:mt-0 md:grid md:grid-cols-2 '>
           <div
-            className='relative grid h-96 -translate-y-1/4 grid-cols-3 grid-rows-1 content-between gap-x-4 gap-y-[100%] p-24 md:h-auto md:p-0'
+            className='relative  grid h-96 grid-cols-3 grid-rows-1 md:p-0'
             ref={flutterSkillsRef}
           >
             <div
               className={`${
                 showAnimation ? 'flutter-tile-secondary' : ''
-              } github-box-shadow aspect-square w-36 translate-y-full rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5`}
+              } github-box-shadow mx-auto aspect-square w-36 rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5`}
             >
               <SiDart size={'100%'} color='rgb(43, 177, 238)' />
             </div>
             <div
               className={`${
                 showAnimation ? 'flutter-tile-main' : ''
-              } github-box-shadow  aspect-square w-36 translate-y-0 rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5 `}
+              } github-box-shadow relative mx-auto aspect-square w-36  rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5 `}
             >
               <SiFlutter size={'100%'} color='rgb(69, 191, 243)' />
             </div>
             <div
               className={`${
                 showAnimation ? 'flutter-tile-secondary' : ''
-              } github-box-shadow aspect-square w-36 translate-y-full  rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5 `}
+              } github-box-shadow mx-auto aspect-square w-36  rounded-lg bg-backgroundBackendTile p-8 opacity-0 transition-all duration-500 ease-in-out md:w-4/5 `}
             >
               <SiFirebase size={'100%'} color='rgb(244, 196, 61)' />
             </div>

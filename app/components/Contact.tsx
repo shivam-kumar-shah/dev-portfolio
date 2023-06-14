@@ -23,7 +23,7 @@ export const Contact = () => {
         }
       },
       {
-        threshold: 0.4,
+        threshold: 0.1,
       }
     );
     observer.observe(contactRef.current!);
@@ -34,7 +34,7 @@ export const Contact = () => {
       id='contact'
       className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 md:sticky md:mt-[40vh] md:h-screen'
     >
-      <div className='mx-auto flex h-full w-screen max-w-6xl flex-col text-center'>
+      <div className='mx-auto flex h-full w-full max-w-6xl flex-col text-center'>
         <h2 className='text-base text-darkTextSecondary'>
           feel free to
           <br />
@@ -61,6 +61,9 @@ export const Contact = () => {
               showAnimation={showAnimation}
               title={'shivam-kumar-shah@outlook.com'}
               className={['text-darkTextPrimary', 'contact-tile-1']}
+              href={
+                'mailto:shivam-kumar-shah@outlook.com?subject=Lets work together🚀'
+              }
             />
             <ProjectTile
               bringToFocus={() => {}}
@@ -69,6 +72,9 @@ export const Contact = () => {
               showAnimation={showAnimation}
               title={'shivam.shah2701@gmail.com'}
               className={['text-darkTextPrimary', 'contact-tile-2']}
+              href={
+                'mailto:shivam.shah2701@gmail.com?subject=Lets work together🚀'
+              }
             />
             <h3 className='my-4 font-title text-3xl font-bold  uppercase text-darkTextPrimary'>
               Social Networks
@@ -78,16 +84,18 @@ export const Contact = () => {
               projectType={'LinkedIn'}
               resetFocus={() => {}}
               showAnimation={showAnimation}
-              title={'shivam-kumar-shah@outlook.com'}
+              title={'/shivam-kumar-shah'}
               className={['text-darkTextPrimary', 'social-tile-1']}
+              href={'https://www.linkedin.com/in/shivam-kumar-shah/'}
             />
             <ProjectTile
               bringToFocus={() => {}}
               projectType={'GitHub'}
               resetFocus={() => {}}
               showAnimation={showAnimation}
-              title={'shivam.shah2701@gmail.com'}
+              title={'/shivam-kumar-shah'}
               className={['text-darkTextPrimary', 'social-tile-2']}
+              href={'https://github.com/shivam-kumar-shah/'}
             />
           </div>
         </div>

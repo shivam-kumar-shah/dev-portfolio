@@ -43,48 +43,49 @@ export const Android = () => {
       id={'android'}
       className='top-0 z-[40] mt-0 w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 md:sticky md:mt-[40vh] md:h-screen'
     >
-      <div className='mx-auto flex h-full w-screen max-w-6xl flex-col text-center'>
+      <div className='mx-auto flex h-full w-full max-w-6xl flex-col text-center'>
         <h2 className='text-base text-darkTextSecondary'>
           and an <br />
           <span className='mb-2 font-title text-6xl font-bold text-darkTextPrimary'>
             Android Developer
           </span>
         </h2>
-        <div className='mx-auto mt-10 flex grow flex-col content-around gap-x-8 md:mx-0 md:mt-0 md:grid md:grid-cols-2 '>
+        <div className=' mt-10 flex grow flex-col content-around gap-x-8 md:mx-0 md:mt-0 md:grid md:grid-cols-2 '>
           <div
-            className='relative grid h-96 grid-cols-2 grid-rows-2 content-between md:h-auto md:-translate-y-1/4 md:gap-y-[100%]'
+            // className='relative grid h-96 grid-cols-2 grid-rows-2 content-between md:h-auto md:-translate-y-1/4 md:gap-y-[100%]'
+            className='relative grid grid-cols-2 grid-rows-2 gap-32'
             ref={androidSkillsRef}
           >
             <div
               className={`${
                 showAnimation ? 'android-tile' : ''
-              } github-box-shadow aspect-square w-32 translate-x-full translate-y-full  rounded-lg bg-backgroundBackendTile  p-8 opacity-0 transition-all duration-500 ease-in-out md:w-1/2 `}
+              } github-box-shadow ml-auto aspect-square w-32  rounded-lg bg-backgroundBackendTile  p-8  transition-all duration-500 ease-in-out `}
             >
               <DiJava size={'100%'} color='rgb(229, 31, 36)' />
             </div>
             <div
               className={`${
                 showAnimation ? 'android-tile' : ''
-              } github-box-shadow aspect-square w-32 -translate-x-full translate-y-full rounded-lg bg-backgroundBackendTile p-12 opacity-0  transition-all duration-500 ease-in-out md:w-1/2`}
+              } github-box-shadow mr-auto aspect-square w-32  rounded-lg bg-backgroundBackendTile p-12   transition-all duration-500 ease-in-out`}
             >
               <SiKotlin size={'100%'} color='rgb(144, 58, 232)' />
             </div>
             <div
               className={`${
                 showAnimation ? 'android-tile' : ''
-              } github-box-shadow aspect-square w-32 -translate-y-full translate-x-full rounded-lg bg-backgroundBackendTile p-12 opacity-0 transition-all duration-500 ease-in-out md:w-1/2 `}
+              } github-box-shadow ml-auto aspect-square w-32  rounded-lg bg-backgroundBackendTile p-12  transition-all duration-500 ease-in-out `}
             >
               <SiSqlite size={'100%'} color='rgb(15, 122, 196)' />
             </div>
             <div
               className={`${
                 showAnimation ? 'android-tile' : ''
-              } github-box-shadow aspect-square w-32 -translate-x-full -translate-y-full rounded-lg bg-backgroundBackendTile p-12 opacity-0 transition-all duration-500 ease-in-out md:w-1/2 `}
+              } github-box-shadow mr-auto aspect-square w-32  rounded-lg bg-backgroundBackendTile p-12  transition-all duration-500 ease-in-out `}
             >
               <SiJetpackcompose size={'100%'} color='rgb(49, 213, 133)' />
             </div>
             <div
-              className={`github-box-shadow opacity-1 absolute right-1/2 top-1/2 aspect-square w-32 -translate-y-3/4 translate-x-1/4 rounded-lg bg-backgroundBackendTile p-12   transition-all duration-500 ease-in-out md:w-1/4 md:translate-x-0 md:translate-y-0 `}
+              className={`github-box-shadow opacity-1 absolute left-1/2 top-1/2 mx-auto aspect-square w-32 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-backgroundBackendTile p-12  transition-all duration-500 ease-in-out`}
             >
               <SiMaterialdesign size={'100%'} color='white' />
             </div>
