@@ -2,11 +2,6 @@
 import Link from 'next/link';
 import './globals.css';
 
-export const metadata = {
-  title: 'Shivam Kumar | Portfolio',
-  description: "shivam-kumar-shah's Developer Portfolio",
-};
-
 export default function RootLayout({
   children,
 }: {
