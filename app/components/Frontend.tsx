@@ -1,3 +1,5 @@
+'use client';
+
 import React, { RefObject, useEffect, useRef, useState } from 'react';
 import { ProjectTile } from './ProjectTile';
 import { CarouselImages } from './CarouselImages';
