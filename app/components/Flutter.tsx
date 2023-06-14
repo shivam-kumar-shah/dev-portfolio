@@ -3,21 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ProjectTile } from './ProjectTile';
 
-import { DiJava, DiMongodb, DiNodejs } from 'react-icons/di';
-import {
-  SiDart,
-  SiExpress,
-  SiFirebase,
-  SiFlutter,
-  SiGraphql,
-  SiJetpackcompose,
-  SiKotlin,
-  SiMaterialdesign,
-  SiMysql,
-  SiPostman,
-  SiSqlite,
-} from 'react-icons/si';
-import { IoLogoFirebase } from 'react-icons/io5';
+import { SiDart, SiFirebase, SiFlutter } from 'react-icons/si';
 
 import '../globals.css';
 import { CarouselImages } from './CarouselImages';

@@ -1,18 +1,18 @@
 'use client';
 
-import React, { RefObject, useEffect, useRef, useState } from 'react';
-import { ProjectTile } from './ProjectTile';
-import { CarouselImages } from './CarouselImages';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import {
+  SiBootstrap,
+  SiCss3,
+  SiHtml5,
   SiJavascript,
   SiNextdotjs,
-  SiCss3,
   SiReact,
   SiTailwindcss,
-  SiHtml5,
-  SiBootstrap,
   SiTypescript,
 } from 'react-icons/si';
+import { CarouselImages } from './CarouselImages';
+import { ProjectTile } from './ProjectTile';
 
 type Props = {
   showCounter: boolean;

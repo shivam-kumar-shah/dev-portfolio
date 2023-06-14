@@ -2,18 +2,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { ProjectTile } from './ProjectTile';
 
-import { DiJava, DiMongodb, DiNodejs } from 'react-icons/di';
+import { DiJava } from 'react-icons/di';
 import {
-  SiExpress,
-  SiGraphql,
   SiJetpackcompose,
   SiKotlin,
   SiMaterialdesign,
-  SiMysql,
-  SiPostman,
   SiSqlite,
 } from 'react-icons/si';
-import {} from 'react-icons/di';
 
 import '../globals.css';
 

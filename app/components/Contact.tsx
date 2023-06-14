@@ -3,9 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ProjectTile } from './ProjectTile';
 
-import { DiMongodb, DiNodejs } from 'react-icons/di';
-import { SiExpress, SiGraphql, SiMysql, SiPostman } from 'react-icons/si';
-
 import '../globals.css';
 
 export const Contact = () => {
