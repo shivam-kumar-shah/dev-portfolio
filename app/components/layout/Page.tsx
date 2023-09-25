@@ -18,3 +18,5 @@ export const Page = forwardRef<HTMLDivElement, PropsWithChildren<Props>>(
     );
   }
 );
+
+Page.displayName = 'Page';
