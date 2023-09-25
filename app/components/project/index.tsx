@@ -4,6 +4,7 @@ import { RxOpenInNewWindow, RxGithubLogo, RxCross1 } from 'react-icons/rx';
 import Heading from '../ui/Heading';
 import SubHeading from '../ui/SubHeading';
 import { IProject } from '@/app/model/IProject';
+import Image from 'next/image';
 
 type Props = {
   className?: string;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export const Project = ({ project, className, closeProject }: Props) => {
+  if (!project) return;
   return (
     <Main
       className={`grow overflow-hidden rounded-xl bg-backgroundBackendTile transition-all duration-300 ease-in-out md:h-4/5 ${className}`}
@@ -22,7 +24,7 @@ export const Project = ({ project, className, closeProject }: Props) => {
           backgroundColor: project?.color,
         }}
       >
-        <img
+        <Image
           src={project?.imgSrc}
           alt={project?.title}
           className='scale-125 transition-all duration-300 ease-in-out'

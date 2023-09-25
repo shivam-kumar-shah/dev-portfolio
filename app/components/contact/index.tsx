@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { ContactTile } from './ContactTile';
 import { Page } from '../layout/Page';
 import SubHeading from '../ui/SubHeading';
@@ -34,7 +35,7 @@ export const Contact = () => {
       <Heading className='text-center text-6xl'>Contact Me</Heading>
       <Main>
         <div className='px-12 md:px-0 lg:px-12'>
-          <img
+          <Image
             src='logo-circle.png'
             alt='Shivam Kumar'
             className={'aspect-square w-full'}

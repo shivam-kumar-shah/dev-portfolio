@@ -1,6 +1,8 @@
 'use client';
 
 import { MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+
 import {
   SiBootstrap,
   SiCss3,
@@ -84,7 +86,7 @@ export const Frontend = () => {
 
   return (
     <>
-      <img
+      <Image
         src='logo-circle.png'
         alt='Shivam Kumar'
         onClick={scrollToTop}
