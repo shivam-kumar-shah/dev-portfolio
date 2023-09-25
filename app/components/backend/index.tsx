@@ -113,7 +113,7 @@ export const Backend = () => {
             />
           </ProjectsPane>
         </Main>
-        <Project />
+        <Project color='rgb(235, 235, 255)' />
       </div>
     </Page>
   );

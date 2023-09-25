@@ -14,10 +14,8 @@ module.exports = {
       },
       colors: {
         shadowColor: 'rgb(241, 241, 242)',
-        //light theme
-        // primary: "rgb(255, 231, 147)",
         primary: '#E1341E',
-        // background: "rgb(251, 252, 253)",
+        accent: 'rgb(102, 100, 236)',
         background: '#1ECBE1',
         backgroundSecondary: 'rgb(205, 238, 255)',
         backgroundBackend: 'rgb(27, 31, 36)',
@@ -25,6 +23,7 @@ module.exports = {
         backendTileGlow: 'rgb(38, 57, 54)',
         textPrimary: 'rgb(69, 74, 79)',
         textSecondary: 'rgb(89, 97, 105)',
+        overlay: 'rgba(255,255,255,.5)',
         //dark theme
         darkPrimary: 'rgb(105, 25, 255)',
         darkBackground: 'rgb(6, 9, 24)',
@@ -37,5 +36,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')],
 };

@@ -94,36 +94,36 @@ https://cdn.jsdelivr.net/npm/source-sans-pro@3.6.0/source-sans-pro.min.css
           }`}
         >
           <ul className='flex flex-col gap-x-4 gap-y-2 text-center text-4xl font-semibold text-textSecondary'>
-            <Link href={'#intro'} onClick={toggleNav}>
-              <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              <a href={'#intro'} onClick={toggleNav}>
                 Home
-              </li>
-            </Link>
-            <Link href={'#frontend'} onClick={toggleNav}>
-              <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              </a>
+            </li>
+            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              <a href={'#frontend'} onClick={toggleNav}>
                 Frontend
-              </li>
-            </Link>
-            <Link href={'#backend'} onClick={toggleNav}>
-              <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              </a>
+            </li>
+            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              <a href={'#backend'} onClick={toggleNav}>
                 Backend
-              </li>
-            </Link>
-            <Link href={'#android'} onClick={toggleNav}>
-              <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              </a>
+            </li>
+            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              <a href={'#android'} onClick={toggleNav}>
                 Android
-              </li>
-            </Link>
-            <Link href={'#flutter'} onClick={toggleNav}>
-              <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              </a>
+            </li>
+            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              <a href={'#flutter'} onClick={toggleNav}>
                 Flutter
-              </li>
-            </Link>
-            <Link href={'#contact'} onClick={toggleNav}>
-              <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              </a>
+            </li>
+            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+              <a href={'#contact'} onClick={toggleNav}>
                 Contact
-              </li>
-            </Link>
+              </a>
+            </li>
           </ul>
         </nav>
         <div

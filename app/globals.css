@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.project__showcase:hover img {
+  @apply scale-100;
+}
+
+.project__showcase:hover .overlay {
+  @apply pointer-events-auto cursor-pointer opacity-100;
+}
+
+.overlay {
+  @apply pointer-events-none absolute top-0 grid h-full w-full place-items-center bg-overlay text-7xl text-backgroundBackendTile opacity-0 transition-all duration-300 ease-in-out;
+}
+
 .open {
   @apply pointer-events-auto opacity-100 !important;
 }
