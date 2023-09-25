@@ -24,11 +24,9 @@ export const Flutter = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
     setSelectedIndex(index);
   }
   function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
     setSelectedIndex(-1);
   }
   const toggleProject = (project: IProject) => {
@@ -74,16 +72,13 @@ export const Flutter = () => {
   ));
 
   return (
-    <Page id={'flutter'}>
+    <Page id={'flutter'} ref={ref}>
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Flutter Developer</Heading>
       <div className='flex h-full w-full flex-row'>
         <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
           <SkillsPane carousel={carousel}>
-            <div
-              className='relative  grid h-96 grid-cols-3 grid-rows-1 md:p-0'
-              ref={ref}
-            >
+            <div className='relative  grid h-96 grid-cols-3 grid-rows-1 md:p-0'>
               <SkillTile
                 className={`${showAnimation ? 'flutter-tile-secondary' : ''}`}
               >

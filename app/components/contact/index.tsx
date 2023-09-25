@@ -29,11 +29,11 @@ export const Contact = () => {
   }, []);
 
   return (
-    <Page id='contact'>
+    <Page id='contact' ref={contactRef}>
       <SubHeading className='text-center'>feel free to</SubHeading>
       <Heading className='text-center text-6xl'>Contact Me</Heading>
       <Main>
-        <div className='px-12 md:px-0 lg:px-12' ref={contactRef}>
+        <div className='px-12 md:px-0 lg:px-12'>
           <img
             src='logo-circle.png'
             alt='Shivam Kumar'

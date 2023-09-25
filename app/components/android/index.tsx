@@ -29,11 +29,9 @@ export const Android = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
     setSelectedIndex(index);
   }
   function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
     setSelectedIndex(-1);
   }
   const toggleProject = (project: IProject) => {
@@ -79,16 +77,13 @@ export const Android = () => {
   ));
 
   return (
-    <Page id={'android'}>
+    <Page id={'android'} ref={ref}>
       <SubHeading className='text-center'>and an</SubHeading>
       <Heading className='text-center text-6xl'>Android Developer</Heading>
       <div className='flex h-full w-full flex-row'>
         <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
           <SkillsPane carousel={carousel}>
-            <div
-              className='relative grid grid-cols-2 grid-rows-2 gap-32 '
-              ref={ref}
-            >
+            <div className='relative grid grid-cols-2 grid-rows-2 gap-32 '>
               <SkillTile showAnimation={showAnimation}>
                 <DiJava size={'100%'} color='rgb(229, 31, 36)' />
               </SkillTile>

@@ -29,11 +29,9 @@ export const Frontend = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
     setSelectedIndex(index);
   }
   function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
     setSelectedIndex(-1);
   }
   const toggleProject = (project: IProject) => {
@@ -97,27 +95,27 @@ export const Frontend = () => {
 
       <section
         id={'frontend'}
-        className='top-0 z-[40] mt-0 h-screen w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 sm:mt-[40vh] md:sticky md:h-screen'
+        ref={ref}
+        className='top-0 z-[40] mt-0 h-full w-screen overflow-hidden border-t-2 border-textPrimary bg-backgroundBackend px-4 pt-24 sm:mt-[40vh] md:sticky md:h-screen'
       >
-        <div className='mx-auto flex h-full w-full max-w-6xl flex-col'>
+        <div className='mx-auto flex h-full min-h-screen w-full max-w-6xl flex-col'>
           <SubHeading className='text-center'>Hi, I am a</SubHeading>
-          <Heading className=' text-center text-6xl'>
+          <Heading className='text-center text-6xl'>
             Frontend Web Developer
           </Heading>
           <div className='relative flex h-full w-full flex-row'>
             <Main
               className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}
             >
-              <div className='relative h-full w-full'>
+              <div className='skills__pane relative aspect-square w-full'>
                 <div className='carousel'>{carousel}</div>
                 <div
                   className={`${
                     showAnimation ? 'skills-translate' : 'skills-bottom'
-                  } relative h-full  w-full rotate-45 transition-all duration-1000 ease-in-out`}
-                  ref={ref}
+                  } relative h-full w-full rotate-45 transition-all duration-1000 ease-in-out`}
                 >
                   <div
-                    className={`github-box-shadow absolute left-1/2 top-1/2 grid aspect-square w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full `}
+                    className={`github-box-shadow absolute left-1/2 top-1/2 grid aspect-square w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full`}
                   >
                     <span
                       className={`${

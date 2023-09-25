@@ -9,7 +9,7 @@ export const CarouselImages = ({ isSelected, alt, src }: Props) => {
     <div
       className={`${
         isSelected ? 'opacity-1 translate-y-0' : 'translate-y-full opacity-0'
-      } display pointer-events-none absolute left-0 top-0 z-10 max-h-full w-full overflow-hidden rounded-t-xl  shadow-2xl shadow-backendTileGlow  transition-all duration-500 ease-out`}
+      } display pointer-events-none absolute left-0 top-0 z-10 hidden max-h-full w-full overflow-hidden rounded-t-xl shadow-2xl  shadow-backendTileGlow transition-all  duration-500 ease-out sm:block`}
     >
       <img
         src={src.toString()}

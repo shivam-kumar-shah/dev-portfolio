@@ -25,11 +25,9 @@ export const Backend = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
     setSelectedIndex(index);
   }
   function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
     setSelectedIndex(-1);
   }
   const toggleProject = (project: IProject) => {
@@ -75,16 +73,13 @@ export const Backend = () => {
   ));
 
   return (
-    <Page id={'backend'}>
+    <Page id={'backend'} ref={ref}>
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Backend Web Developer</Heading>
       <div className='flex h-full w-full flex-row'>
         <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
           <SkillsPane carousel={carousel}>
-            <div
-              className='backend-skills grid grid-cols-3 grid-rows-2 gap-4 transition-all ease-in-out'
-              ref={ref}
-            >
+            <div className='backend-skills grid grid-cols-3 grid-rows-2 gap-4 transition-all ease-in-out'>
               <SkillTile showAnimation={showAnimation}>
                 <DiNodejs size={'100%'} color='rgb(103, 187, 74)' />
               </SkillTile>
