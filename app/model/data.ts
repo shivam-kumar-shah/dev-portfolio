@@ -1,0 +1,118 @@
+import { IProject } from './IProject';
+
+export const frontend: IProject[] = [
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+];
+export const backend: IProject[] = [
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+];
+export const android: IProject[] = [
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+];
+export const flutter: IProject[] = [
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+  {
+    title: 'Project Title',
+    summary: 'loremipsum',
+    repoLink: 'https://nolink.com',
+    deploymentLink: 'https://nolink.com',
+    imgSrc: '/projects/frontend/1.png',
+    color: 'rgb(235, 235, 255)',
+    projectType: 'React JS UI/UX',
+  },
+];

@@ -15,12 +15,26 @@ import { Main } from '../layout/Main';
 import { SkillsPane } from '../layout/SkillsPane';
 import { ProjectsPane } from '../layout/ProjectsPane';
 import { Project } from '../project';
+import { IProject } from '@/app/model/IProject';
+import { backend } from '@/app/model/data';
 
 export const Backend = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [showAnimation, setShowAnimation] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
   const ref = useRef<HTMLDivElement>(null);
+
+  function bringToFocus(index: number) {
+    ref.current?.classList.add('opacity-0');
+    setSelectedIndex(index);
+  }
+  function resetFocus() {
+    ref.current?.classList.remove('opacity-0');
+    setSelectedIndex(-1);
+  }
+  const toggleProject = (project: IProject) => {
+    setSelectedProject(project);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,39 +52,33 @@ export const Backend = () => {
     observer.observe(ref.current!);
   }, []);
 
-  const carousel = [
+  const carousel = backend.map((item, index) => (
     <CarouselImages
-      alt={'comments frontend'}
-      isSelected={selectedIndex == 0}
-      src={'projects/frontend/1.png'}
-      key={'projects/frontend/1.png'}
-    />,
-    <CarouselImages
-      alt={'password generator'}
-      isSelected={selectedIndex == 1}
-      src={'projects/frontend/2.png'}
-      key={'projects/frontend/2.png'}
-    />,
-  ];
-
-  function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
-    setSelectedIndex(index);
-  }
-  function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
-    setSelectedIndex(-1);
-  }
-  const toggleProject: MouseEventHandler<HTMLAnchorElement> = (event) => {
-    event.preventDefault();
-    setSelectedProject((prev) => !prev);
-  };
+      alt={item.title}
+      isSelected={selectedIndex == index}
+      src={item.imgSrc}
+      key={item.title}
+    />
+  ));
+  const projects = backend.map((item, index) => (
+    <ProjectTile
+      bringToFocus={() => {
+        bringToFocus(0);
+      }}
+      project={item}
+      resetFocus={resetFocus}
+      showAnimation={showAnimation}
+      className={'animated-tile-1 text-darkTextPrimary'}
+      key={'comments frontend'}
+      onClick={toggleProject}
+    />
+  ));
 
   return (
     <Page id={'backend'}>
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Backend Web Developer</Heading>
-      <div className='main flex h-full w-full flex-row'>
+      <div className='flex h-full w-full flex-row'>
         <Main
           className={`${
             selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
@@ -101,35 +109,16 @@ export const Backend = () => {
               </SkillTile>
             </div>
           </SkillsPane>
-          <ProjectsPane>
-            <ProjectTile
-              bringToFocus={() => bringToFocus(0)}
-              projectType={'Express JS MongoDB'}
-              resetFocus={resetFocus}
-              showAnimation={showAnimation}
-              title={'posts api'}
-              className={'animated-tile-1 text-darkTextPrimary'}
-              key={'posts api'}
-              onClick={toggleProject}
-            />
-            <ProjectTile
-              bringToFocus={() => bringToFocus(1)}
-              projectType={'Express JS Typescript'}
-              resetFocus={resetFocus}
-              showAnimation={showAnimation}
-              title={'bing news api'}
-              className={'animated-tile-2 text-darkTextPrimary'}
-              key={'bing news api'}
-              onClick={toggleProject}
-            />
-          </ProjectsPane>
+          <ProjectsPane>{projects}</ProjectsPane>
         </Main>
         <Project
-          color='rgb(235, 235, 255)'
+          project={selectedProject}
           className={`${
-            selectedProject ? 'h-full w-full opacity-100' : 'h-0 w-0 opacity-0'
+            selectedProject
+              ? 'h-full w-full opacity-100'
+              : 'hidden w-0 opacity-0'
           }`}
-          closeProject={() => setSelectedProject((prev) => !prev)}
+          closeProject={() => setSelectedProject(null)}
         />
       </div>
     </Page>

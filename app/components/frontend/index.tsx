@@ -1,6 +1,6 @@
 'use client';
 
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { MouseEvent, RefObject, useEffect, useRef, useState } from 'react';
 import {
   SiBootstrap,
   SiCss3,
@@ -17,11 +17,28 @@ import Heading from '../ui/Heading';
 import SubHeading from '../ui/SubHeading';
 import SkillTile from './SkillTile';
 import { Main } from '../layout/Main';
+import { Project } from '../project';
+
+import { frontend } from '@/app/model/data';
+import { IProject } from '@/app/model/IProject';
 
 export const Frontend = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
   const [showAnimation, setShowAnimation] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  function bringToFocus(index: number) {
+    ref.current?.classList.add('opacity-0');
+    setSelectedIndex(index);
+  }
+  function resetFocus() {
+    ref.current?.classList.remove('opacity-0');
+    setSelectedIndex(-1);
+  }
+  const toggleProject = (project: IProject) => {
+    setSelectedProject(project);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,29 +56,27 @@ export const Frontend = () => {
     observer.observe(ref.current!);
   }, []);
 
-  const carousal = [
+  const carousel = frontend.map((item, index) => (
     <CarouselImages
-      alt={'comments frontend'}
-      isSelected={selectedIndex == 0}
-      src={'projects/frontend/1.png'}
-      key={'projects/frontend/1.png'}
-    />,
-    <CarouselImages
-      alt={'password generator'}
-      isSelected={selectedIndex == 1}
-      src={'projects/frontend/2.png'}
-      key={'projects/frontend/2.png'}
-    />,
-  ];
-
-  function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
-    setSelectedIndex(index);
-  }
-  function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
-    setSelectedIndex(-1);
-  }
+      alt={item.title}
+      isSelected={selectedIndex == index}
+      src={item.imgSrc}
+      key={item.title}
+    />
+  ));
+  const projects = frontend.map((item, index) => (
+    <ProjectTile
+      bringToFocus={() => {
+        bringToFocus(0);
+      }}
+      project={item}
+      resetFocus={resetFocus}
+      showAnimation={showAnimation}
+      className={'animated-tile-1 text-darkTextPrimary'}
+      key={'comments frontend'}
+      onClick={toggleProject}
+    />
+  ));
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -89,115 +104,109 @@ export const Frontend = () => {
           <Heading className=' text-center text-6xl'>
             Frontend Web Developer
           </Heading>
-          <Main>
-            <div className='relative h-full w-full'>
-              <div className='carousal'>{carousal}</div>
-              <div
-                className={`${
-                  showAnimation ? 'skills-translate' : 'skills-bottom'
-                } relative h-full  w-full rotate-45 transition-all duration-1000 ease-in-out`}
-                ref={ref}
-              >
+          <div className='flex h-full w-full flex-row'>
+            <Main
+              className={`${
+                selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
+              }`}
+            >
+              <div className='relative h-full w-full'>
+                <div className='carousel'>{carousel}</div>
                 <div
-                  className={`github-box-shadow absolute left-1/2 top-1/2 grid aspect-square w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full `}
+                  className={`${
+                    showAnimation ? 'skills-translate' : 'skills-bottom'
+                  } relative h-full  w-full rotate-45 transition-all duration-1000 ease-in-out`}
+                  ref={ref}
                 >
-                  <span
-                    className={`${
-                      showAnimation ? 'animation-counter' : ''
-                    } z-10 -rotate-45 font-title text-4xl text-darkTextPrimary`}
+                  <div
+                    className={`github-box-shadow absolute left-1/2 top-1/2 grid aspect-square w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full `}
                   >
-                    Skills
-                  </span>
-                  <SkillTile className='bottom-full left-1/2 mb-12 -translate-x-1/2'>
-                    <SiJavascript
-                      size={'100%'}
-                      color='rgb(234, 212, 28)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  <SkillTile className='left-1/2 top-full mt-12 -translate-x-1/2'>
-                    <SiNextdotjs
-                      size={'100%'}
-                      color='white'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  {/* horizontal */}
-                  <SkillTile className='-left-10 top-1/2 -translate-x-full -translate-y-1/2  '>
-                    <SiCss3
-                      size={'100%'}
-                      color='rgb(62, 100, 214)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  <SkillTile className='-right-10 top-1/2  -translate-y-1/2 translate-x-full  '>
-                    <SiReact
-                      size={'100%'}
-                      color='rgb(0, 206, 242)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  {/* diagonal left*/}
-                  <SkillTile className='left-1 top-3/4  -translate-x-full translate-y-1/3  '>
-                    <SiTailwindcss
-                      size={'100%'}
-                      color='rgb(7, 173, 202)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  <SkillTile className='-top-full left-0  -translate-x-full translate-y-1/3  '>
-                    <SiHtml5
-                      size={'100%'}
-                      color='rgb(242, 83, 32)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  {/* diagonal right*/}
-                  <SkillTile className='-right-full top-3/4  -translate-x-8 translate-y-1/3  '>
-                    <SiBootstrap
-                      size={'100%'}
-                      color='rgb(120, 16, 237)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
-                  <SkillTile className='-right-full -top-full  -translate-x-8 translate-y-1/3  '>
-                    <SiTypescript
-                      size={'100%'}
-                      color='rgb(46, 114, 188)'
-                      className={showAnimation ? 'animation-counter' : ''}
-                    />
-                  </SkillTile>
+                    <span
+                      className={`${
+                        showAnimation ? 'animation-counter' : ''
+                      } z-10 -rotate-45 font-title text-4xl text-darkTextPrimary`}
+                    >
+                      Skills
+                    </span>
+                    <SkillTile className='bottom-full left-1/2 mb-12 -translate-x-1/2'>
+                      <SiJavascript
+                        size={'100%'}
+                        color='rgb(234, 212, 28)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    <SkillTile className='left-1/2 top-full mt-12 -translate-x-1/2'>
+                      <SiNextdotjs
+                        size={'100%'}
+                        color='white'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    {/* horizontal */}
+                    <SkillTile className='-left-10 top-1/2 -translate-x-full -translate-y-1/2  '>
+                      <SiCss3
+                        size={'100%'}
+                        color='rgb(62, 100, 214)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    <SkillTile className='-right-10 top-1/2  -translate-y-1/2 translate-x-full  '>
+                      <SiReact
+                        size={'100%'}
+                        color='rgb(0, 206, 242)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    {/* diagonal left*/}
+                    <SkillTile className='left-1 top-3/4  -translate-x-full translate-y-1/3  '>
+                      <SiTailwindcss
+                        size={'100%'}
+                        color='rgb(7, 173, 202)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    <SkillTile className='-top-full left-0  -translate-x-full translate-y-1/3  '>
+                      <SiHtml5
+                        size={'100%'}
+                        color='rgb(242, 83, 32)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    {/* diagonal right*/}
+                    <SkillTile className='-right-full top-3/4  -translate-x-8 translate-y-1/3  '>
+                      <SiBootstrap
+                        size={'100%'}
+                        color='rgb(120, 16, 237)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                    <SkillTile className='-right-full -top-full  -translate-x-8 translate-y-1/3  '>
+                      <SiTypescript
+                        size={'100%'}
+                        color='rgb(46, 114, 188)'
+                        className={showAnimation ? 'animation-counter' : ''}
+                      />
+                    </SkillTile>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='h-full w-full px-8 text-2xl'>
-              <h3 className='mb-4 font-title text-3xl font-bold uppercase text-darkTextPrimary md:px-0'>
-                Projects
-              </h3>
-              <div className='h-full w-full'>
-                <ProjectTile
-                  bringToFocus={() => {
-                    bringToFocus(0);
-                  }}
-                  projectType={'React JS UI/UX'}
-                  resetFocus={resetFocus}
-                  showAnimation={showAnimation}
-                  title={'comments frontend'}
-                  className={'animated-tile-1 text-darkTextPrimary'}
-                  key={'comments frontend'}
-                />
-                <ProjectTile
-                  bringToFocus={() => bringToFocus(1)}
-                  projectType={'Vanilla JS'}
-                  resetFocus={resetFocus}
-                  showAnimation={showAnimation}
-                  title={'password generator'}
-                  className={'animated-tile-2 text-darkTextPrimary'}
-                  key={'password generator'}
-                />
+              <div className='h-full w-full px-8 text-2xl'>
+                <h3 className='mb-4 font-title text-3xl font-bold uppercase text-darkTextPrimary md:px-0'>
+                  Projects
+                </h3>
+                <div className='h-full w-full'>{projects}</div>
               </div>
-            </div>
-          </Main>
+            </Main>
+            <Project
+              className={`${
+                selectedProject
+                  ? 'h-full w-full opacity-100'
+                  : 'hidden w-0 opacity-0'
+              }`}
+              project={selectedProject}
+              closeProject={() => setSelectedProject(null)}
+            />
+          </div>
         </div>
       </section>
     </>

@@ -13,11 +13,27 @@ import { Main } from '../layout/Main';
 import { SkillsPane } from '../layout/SkillsPane';
 import { ProjectsPane } from '../layout/ProjectsPane';
 import { SkillTile } from './SkillTile';
+import { IProject } from '@/app/model/IProject';
+import { flutter } from '@/app/model/data';
+import { Project } from '../project';
 
 export const Flutter = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [showAnimation, setShowAnimation] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
   const ref = useRef<HTMLDivElement>(null);
+
+  function bringToFocus(index: number) {
+    ref.current?.classList.add('opacity-0');
+    setSelectedIndex(index);
+  }
+  function resetFocus() {
+    ref.current?.classList.remove('opacity-0');
+    setSelectedIndex(-1);
+  }
+  const toggleProject = (project: IProject) => {
+    setSelectedProject(project);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,78 +51,74 @@ export const Flutter = () => {
     observer.observe(ref.current!);
   }, []);
 
-  const carousel = [
+  const carousel = flutter.map((item, index) => (
     <CarouselImages
-      alt={'comments frontend'}
-      isSelected={selectedIndex == 0}
-      src={'projects/frontend/1.png'}
-      key={'projects/frontend/1.png'}
-    />,
-    <CarouselImages
-      alt={'password generator'}
-      isSelected={selectedIndex == 1}
-      src={'projects/frontend/2.png'}
-      key={'projects/frontend/2.png'}
-    />,
-  ];
-
-  function bringToFocus(index: number) {
-    ref.current?.classList.add('opacity-0');
-    setSelectedIndex(index);
-  }
-  function resetFocus() {
-    ref.current?.classList.remove('opacity-0');
-    setSelectedIndex(-1);
-  }
+      alt={item.title}
+      isSelected={selectedIndex == index}
+      src={item.imgSrc}
+      key={item.title}
+    />
+  ));
+  const projects = flutter.map((item, index) => (
+    <ProjectTile
+      bringToFocus={() => {
+        bringToFocus(0);
+      }}
+      project={item}
+      resetFocus={resetFocus}
+      showAnimation={showAnimation}
+      className={'animated-tile-1 text-darkTextPrimary'}
+      key={'comments frontend'}
+      onClick={toggleProject}
+    />
+  ));
 
   return (
     <Page id={'flutter'}>
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Flutter Developer</Heading>
-      <Main>
-        <SkillsPane carousel={carousel}>
-          <div
-            className='relative  grid h-96 grid-cols-3 grid-rows-1 md:p-0'
-            ref={ref}
-          >
-            <SkillTile
-              className={`${showAnimation ? 'flutter-tile-secondary' : ''}`}
+      <div className='flex h-full w-full flex-row'>
+        <Main
+          className={`${
+            selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
+          }`}
+        >
+          <SkillsPane carousel={carousel}>
+            <div
+              className='relative  grid h-96 grid-cols-3 grid-rows-1 md:p-0'
+              ref={ref}
             >
-              <SiDart size={'100%'} color='rgb(43, 177, 238)' />
-            </SkillTile>
-            <SkillTile
-              className={`${showAnimation ? 'flutter-tile-main' : ''} relative`}
-            >
-              <SiFlutter size={'100%'} color='rgb(69, 191, 243)' />
-            </SkillTile>
-            <SkillTile
-              className={`${showAnimation ? 'flutter-tile-secondary' : ''}`}
-            >
-              <SiFirebase size={'100%'} color='rgb(244, 196, 61)' />
-            </SkillTile>
-          </div>
-        </SkillsPane>
-        <ProjectsPane>
-          <ProjectTile
-            bringToFocus={() => bringToFocus(0)}
-            projectType={'Express JS MongoDB'}
-            resetFocus={resetFocus}
-            showAnimation={showAnimation}
-            title={'posts api'}
-            className={'animated-tile-1 text-darkTextPrimary'}
-            key={'posts api'}
-          />
-          <ProjectTile
-            bringToFocus={() => bringToFocus(0)}
-            projectType={'Express JS Typescript'}
-            resetFocus={resetFocus}
-            showAnimation={showAnimation}
-            title={'bing news api'}
-            className={'animated-tile-2 text-darkTextPrimary'}
-            key={'bing news api'}
-          />
-        </ProjectsPane>
-      </Main>
+              <SkillTile
+                className={`${showAnimation ? 'flutter-tile-secondary' : ''}`}
+              >
+                <SiDart size={'100%'} color='rgb(43, 177, 238)' />
+              </SkillTile>
+              <SkillTile
+                className={`${
+                  showAnimation ? 'flutter-tile-main' : ''
+                } relative`}
+              >
+                <SiFlutter size={'100%'} color='rgb(69, 191, 243)' />
+              </SkillTile>
+              <SkillTile
+                className={`${showAnimation ? 'flutter-tile-secondary' : ''}`}
+              >
+                <SiFirebase size={'100%'} color='rgb(244, 196, 61)' />
+              </SkillTile>
+            </div>
+          </SkillsPane>
+          <ProjectsPane>{projects}</ProjectsPane>
+        </Main>
+        <Project
+          project={selectedProject}
+          className={`${
+            selectedProject
+              ? 'h-full w-full opacity-100'
+              : 'hidden w-0 opacity-0'
+          }`}
+          closeProject={() => setSelectedProject(null)}
+        />
+      </div>
     </Page>
   );
 };

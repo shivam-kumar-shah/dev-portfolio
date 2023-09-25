@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ProjectTile } from '../ui/ProjectTile';
+import { ContactTile } from './ContactTile';
 import { Page } from '../layout/Page';
 import SubHeading from '../ui/SubHeading';
 import Heading from '../ui/Heading';
@@ -42,10 +42,8 @@ export const Contact = () => {
         </div>
         <div className=' my-12 px-8 text-left text-2xl md:mt-0'>
           <Heading className='text-3xl'>Email</Heading>
-          <ProjectTile
-            bringToFocus={() => {}}
-            projectType={'Primary'}
-            resetFocus={() => {}}
+          <ContactTile
+            subtitle={'Primary'}
             showAnimation={showAnimation}
             title={'shivam-kumar-shah@outlook.com'}
             className={'contact-tile-1 text-darkTextPrimary'}
@@ -53,10 +51,8 @@ export const Contact = () => {
               'mailto:shivam-kumar-shah@outlook.com?subject=Lets work together🚀'
             }
           />
-          <ProjectTile
-            bringToFocus={() => {}}
-            projectType={'Secondary'}
-            resetFocus={() => {}}
+          <ContactTile
+            subtitle={'Secondary'}
             showAnimation={showAnimation}
             title={'shivam.shah2701@gmail.com'}
             className={'contact-tile-2 text-darkTextPrimary'}
@@ -67,19 +63,15 @@ export const Contact = () => {
           <h3 className='my-4 font-title text-3xl font-bold  uppercase text-darkTextPrimary'>
             Social Networks
           </h3>
-          <ProjectTile
-            bringToFocus={() => {}}
-            projectType={'LinkedIn'}
-            resetFocus={() => {}}
+          <ContactTile
+            subtitle={'LinkedIn'}
             showAnimation={showAnimation}
             title={'/shivam-kumar-shah'}
             className={'social-tile-1 text-darkTextPrimary'}
             href={'https://www.linkedin.com/in/shivam-kumar-shah/'}
           />
-          <ProjectTile
-            bringToFocus={() => {}}
-            projectType={'GitHub'}
-            resetFocus={() => {}}
+          <ContactTile
+            subtitle={'GitHub'}
             showAnimation={showAnimation}
             title={'/shivam-kumar-shah'}
             className={'social-tile-2 text-darkTextPrimary'}
