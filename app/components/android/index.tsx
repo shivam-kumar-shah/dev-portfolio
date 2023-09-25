@@ -83,11 +83,7 @@ export const Android = () => {
       <SubHeading className='text-center'>and an</SubHeading>
       <Heading className='text-center text-6xl'>Android Developer</Heading>
       <div className='flex h-full w-full flex-row'>
-        <Main
-          className={`${
-            selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
-          }`}
-        >
+        <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
           <SkillsPane carousel={carousel}>
             <div
               className='relative grid grid-cols-2 grid-rows-2 gap-32 '
@@ -116,15 +112,12 @@ export const Android = () => {
 
           <ProjectsPane>{projects}</ProjectsPane>
         </Main>
-        <Project
-          project={selectedProject}
-          className={`${
-            selectedProject
-              ? 'h-full w-full opacity-100'
-              : 'hidden w-0 opacity-0'
-          }`}
-          closeProject={() => setSelectedProject(null)}
-        />
+        {selectedProject && (
+          <Project
+            project={selectedProject}
+            closeProject={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </Page>
   );

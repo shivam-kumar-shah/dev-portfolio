@@ -78,11 +78,7 @@ export const Flutter = () => {
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Flutter Developer</Heading>
       <div className='flex h-full w-full flex-row'>
-        <Main
-          className={`${
-            selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
-          }`}
-        >
+        <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
           <SkillsPane carousel={carousel}>
             <div
               className='relative  grid h-96 grid-cols-3 grid-rows-1 md:p-0'
@@ -109,15 +105,12 @@ export const Flutter = () => {
           </SkillsPane>
           <ProjectsPane>{projects}</ProjectsPane>
         </Main>
-        <Project
-          project={selectedProject}
-          className={`${
-            selectedProject
-              ? 'h-full w-full opacity-100'
-              : 'hidden w-0 opacity-0'
-          }`}
-          closeProject={() => setSelectedProject(null)}
-        />
+        {selectedProject && (
+          <Project
+            project={selectedProject}
+            closeProject={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </Page>
   );

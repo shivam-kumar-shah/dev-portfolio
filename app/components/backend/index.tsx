@@ -79,11 +79,7 @@ export const Backend = () => {
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Backend Web Developer</Heading>
       <div className='flex h-full w-full flex-row'>
-        <Main
-          className={`${
-            selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
-          }`}
-        >
+        <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
           <SkillsPane carousel={carousel}>
             <div
               className='backend-skills grid grid-cols-3 grid-rows-2 gap-4 transition-all ease-in-out'
@@ -111,15 +107,12 @@ export const Backend = () => {
           </SkillsPane>
           <ProjectsPane>{projects}</ProjectsPane>
         </Main>
-        <Project
-          project={selectedProject}
-          className={`${
-            selectedProject
-              ? 'h-full w-full opacity-100'
-              : 'hidden w-0 opacity-0'
-          }`}
-          closeProject={() => setSelectedProject(null)}
-        />
+        {selectedProject && (
+          <Project
+            project={selectedProject}
+            closeProject={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </Page>
   );

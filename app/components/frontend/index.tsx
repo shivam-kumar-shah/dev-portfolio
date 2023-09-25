@@ -104,11 +104,9 @@ export const Frontend = () => {
           <Heading className=' text-center text-6xl'>
             Frontend Web Developer
           </Heading>
-          <div className='flex h-full w-full flex-row'>
+          <div className='relative flex h-full w-full flex-row'>
             <Main
-              className={`${
-                selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
-              }`}
+              className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}
             >
               <div className='relative h-full w-full'>
                 <div className='carousel'>{carousel}</div>
@@ -197,15 +195,12 @@ export const Frontend = () => {
                 <div className='h-full w-full'>{projects}</div>
               </div>
             </Main>
-            <Project
-              className={`${
-                selectedProject
-                  ? 'h-full w-full opacity-100'
-                  : 'hidden w-0 opacity-0'
-              }`}
-              project={selectedProject}
-              closeProject={() => setSelectedProject(null)}
-            />
+            {selectedProject && (
+              <Project
+                project={selectedProject}
+                closeProject={() => setSelectedProject(null)}
+              />
+            )}
           </div>
         </div>
       </section>

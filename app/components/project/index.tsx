@@ -12,7 +12,6 @@ type Props = {
 };
 
 export const Project = ({ project, className, closeProject }: Props) => {
-  if (!project) return;
   return (
     <Main
       className={`grow overflow-hidden rounded-xl bg-backgroundBackendTile transition-all duration-300 ease-in-out md:h-4/5 ${className}`}
@@ -20,12 +19,12 @@ export const Project = ({ project, className, closeProject }: Props) => {
       <div
         className='project__showcase relative grid h-full w-full items-center overflow-hidden p-4'
         style={{
-          backgroundColor: project.color,
+          backgroundColor: project?.color,
         }}
       >
         <img
-          src={project.imgSrc}
-          alt={project.title}
+          src={project?.imgSrc}
+          alt={project?.title}
           className='scale-125 transition-all duration-300 ease-in-out'
         />
         <a className='overlay' href='' target='_blank' title='project-title'>
@@ -34,20 +33,20 @@ export const Project = ({ project, className, closeProject }: Props) => {
       </div>
       <div className='project__showcase  h-full w-full overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-textSecondary'>
         <Heading className='flex flex-row items-center justify-between text-3xl'>
-          {project.title}
+          {project?.title}
           <RxCross1
             className='cursor-pointer text-textSecondary transition-all ease-in-out hover:text-darkTextPrimary'
             onClick={closeProject}
           />
         </Heading>
         <div className='subtitle mt-2 flex flex-row items-center gap-x-6'>
-          <a href={project.deploymentLink} target='_blank'>
+          <a href={project?.deploymentLink} target='_blank'>
             <SubHeading className='flex flex-row items-center gap-x-2 hover:text-darkTextPrimary'>
               <RxOpenInNewWindow />
               Open in new tab
             </SubHeading>
           </a>
-          <a href={project.repoLink} target='_blank'>
+          <a href={project?.repoLink} target='_blank'>
             <SubHeading className='flex flex-row items-center gap-x-2 hover:text-darkTextPrimary'>
               <RxGithubLogo />
               Check out the repo
@@ -55,7 +54,7 @@ export const Project = ({ project, className, closeProject }: Props) => {
           </a>
         </div>
         <div className='project__content mt-6 text-darkTextSecondary'>
-          {project.summary}
+          {project?.summary}
         </div>
       </div>
     </Main>
