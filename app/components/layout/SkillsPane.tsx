@@ -11,7 +11,7 @@ export const SkillsPane = ({
   className,
 }: PropsWithChildren<Props>) => {
   return (
-    <div className='relative flex h-full w-full items-center justify-center '>
+    <div className='relative flex h-full w-full items-center justify-center'>
       <div className='carousel'>{carousel}</div>
       {children}
     </div>

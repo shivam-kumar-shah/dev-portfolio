@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { Main } from '../layout/Main';
-import { RxOpenInNewWindow, RxGithubLogo } from 'react-icons/rx';
+import { RxOpenInNewWindow, RxGithubLogo, RxCross1 } from 'react-icons/rx';
 import Heading from '../ui/Heading';
 import SubHeading from '../ui/SubHeading';
 
 type Props = {
   color: string;
+  className?: string;
+  closeProject: () => void;
 };
 
-export const Project = ({ color }: Props) => {
+export const Project = ({ color, className, closeProject }: Props) => {
   return (
-    <Main className='grow rounded-xl bg-backgroundBackendTile md:h-4/5'>
+    <Main
+      className={`grow overflow-hidden rounded-xl bg-backgroundBackendTile transition-all duration-300 ease-in-out md:h-4/5 ${className}`}
+    >
       <div
         className='project__showcase relative grid h-full w-full items-center overflow-hidden p-4'
         style={{
@@ -26,8 +30,14 @@ export const Project = ({ color }: Props) => {
           <RxOpenInNewWindow />
         </a>
       </div>
-      <div className='project__showcase  h-full w-full overflow-y-auto p-6'>
-        <Heading className='text-3xl'>Project Title</Heading>
+      <div className='project__showcase  h-full w-full overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-textSecondary'>
+        <Heading className='flex flex-row items-center justify-between text-3xl'>
+          Project Title
+          <RxCross1
+            className='cursor-pointer text-textSecondary transition-all ease-in-out hover:text-darkTextPrimary'
+            onClick={closeProject}
+          />
+        </Heading>
         <div className='subtitle mt-2 flex flex-row items-center gap-x-6'>
           <a href='' target='_blank'>
             <SubHeading className='flex flex-row items-center gap-x-2 hover:text-darkTextPrimary'>

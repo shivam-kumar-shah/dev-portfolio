@@ -73,10 +73,6 @@
   animation-fill-mode: forwards;
 }
 
-.tile {
-  opacity: 0;
-}
-
 .tile-leading,
 .tile-title {
   transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);

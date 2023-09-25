@@ -1,3 +1,4 @@
+import { MouseEventHandler } from 'react';
 import { HiArrowRight } from 'react-icons/hi';
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
   projectType: String;
   className: string;
   href?: String;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 };
 
 export const ProjectTile = ({
@@ -18,13 +20,14 @@ export const ProjectTile = ({
   projectType,
   title,
   href = '',
+  onClick,
 }: Props) => {
   return (
-    <a href={href.toString()} target='_blank'>
+    <a href={href.toString()} onClick={onClick}>
       <div
         className={`${
-          showAnimation ? className : 'tile'
-        }  relative top-1/2 flex cursor-pointer flex-row items-center gap-x-2 overflow-hidden border-t-4 border-textSecondary py-4`}
+          showAnimation ? className : 'opacity-0'
+        } tile relative top-1/2 flex cursor-pointer flex-row items-center gap-x-2 overflow-hidden border-t-4 border-textSecondary py-4`}
         onMouseEnter={bringToFocus}
         onMouseLeave={() => resetFocus()}
       >

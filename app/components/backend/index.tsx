@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { MouseEventHandler, useEffect, useRef, useState } from 'react';
 import { ProjectTile } from '../ui/ProjectTile';
 
 import { DiMongodb, DiNodejs } from 'react-icons/di';
@@ -19,6 +19,7 @@ import { Project } from '../project';
 export const Backend = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [showAnimation, setShowAnimation] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,13 +61,21 @@ export const Backend = () => {
     ref.current?.classList.remove('opacity-0');
     setSelectedIndex(-1);
   }
+  const toggleProject: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    event.preventDefault();
+    setSelectedProject((prev) => !prev);
+  };
 
   return (
     <Page id={'backend'}>
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Backend Web Developer</Heading>
       <div className='main flex h-full w-full flex-row'>
-        <Main className='w-0'>
+        <Main
+          className={`${
+            selectedProject ? 'w-0 opacity-0' : 'w-full opacity-100'
+          }`}
+        >
           <SkillsPane carousel={carousel}>
             <div
               className='backend-skills grid grid-cols-3 grid-rows-2 gap-4 transition-all ease-in-out'
@@ -101,6 +110,7 @@ export const Backend = () => {
               title={'posts api'}
               className={'animated-tile-1 text-darkTextPrimary'}
               key={'posts api'}
+              onClick={toggleProject}
             />
             <ProjectTile
               bringToFocus={() => bringToFocus(1)}
@@ -110,10 +120,17 @@ export const Backend = () => {
               title={'bing news api'}
               className={'animated-tile-2 text-darkTextPrimary'}
               key={'bing news api'}
+              onClick={toggleProject}
             />
           </ProjectsPane>
         </Main>
-        <Project color='rgb(235, 235, 255)' />
+        <Project
+          color='rgb(235, 235, 255)'
+          className={`${
+            selectedProject ? 'h-full w-full opacity-100' : 'h-0 w-0 opacity-0'
+          }`}
+          closeProject={() => setSelectedProject((prev) => !prev)}
+        />
       </div>
     </Page>
   );
