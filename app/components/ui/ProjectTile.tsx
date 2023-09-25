@@ -1,14 +1,12 @@
 import { HiArrowRight } from 'react-icons/hi';
 
-import '../globals.css';
-
 type Props = {
   showAnimation: boolean;
   bringToFocus(): void;
   resetFocus(): void;
   title: String;
   projectType: String;
-  className: String[];
+  className: string;
   href?: String;
 };
 
@@ -25,8 +23,8 @@ export const ProjectTile = ({
     <a href={href.toString()} target='_blank'>
       <div
         className={`${
-          showAnimation ? className.join(' ') : ' '
-        } tile relative top-1/2 flex cursor-pointer flex-row items-center gap-x-2 overflow-hidden border-t-4 border-textSecondary py-4`}
+          showAnimation ? className : 'tile'
+        }  relative top-1/2 flex cursor-pointer flex-row items-center gap-x-2 overflow-hidden border-t-4 border-textSecondary py-4`}
         onMouseEnter={bringToFocus}
         onMouseLeave={() => resetFocus()}
       >

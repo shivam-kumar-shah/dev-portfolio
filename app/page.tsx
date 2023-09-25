@@ -1,8 +1,8 @@
-import { Android } from './components/Android';
-import { Backend } from './components/Backend';
-import { Contact } from './components/Contact';
-import { Flutter } from './components/Flutter';
-import { Frontend } from './components/Frontend';
+import { Android } from './components/android';
+import { Backend } from './components/backend';
+import { Contact } from './components/contact';
+import { Flutter } from './components/flutter';
+import { Frontend } from './components/frontend';
 import Intro from './components/Intro';
 import './globals.css';
 
