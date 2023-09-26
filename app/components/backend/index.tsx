@@ -76,8 +76,8 @@ export const Backend = () => {
     <Page id={'backend'} ref={ref}>
       <SubHeading className='text-center'>and a</SubHeading>
       <Heading className='text-center text-6xl'>Backend Web Developer</Heading>
-      <div className='flex h-full w-full flex-row'>
-        <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
+      <div className='relative grid h-full w-full items-center'>
+        <Main>
           <SkillsPane carousel={carousel}>
             <div className='backend-skills grid grid-cols-3 grid-rows-2 gap-4 transition-all ease-in-out'>
               <SkillTile showAnimation={showAnimation}>
@@ -102,12 +102,10 @@ export const Backend = () => {
           </SkillsPane>
           <ProjectsPane>{projects}</ProjectsPane>
         </Main>
-        {selectedProject && (
-          <Project
-            project={selectedProject}
-            closeProject={() => setSelectedProject(null)}
-          />
-        )}
+        <Project
+          project={selectedProject}
+          closeProject={() => setSelectedProject(null)}
+        />
       </div>
     </Page>
   );

@@ -24,9 +24,7 @@ export default function RootLayout({
     <html lang='en' className='scroll-smooth text-xs sm:text-base'>
       <head>
         <link
-          href='
-https://cdn.jsdelivr.net/npm/source-sans-pro@3.6.0/source-sans-pro.min.css
-'
+          href='https://cdn.jsdelivr.net/npm/source-sans-pro@3.6.0/source-sans-pro.min.css'
           rel='stylesheet'
         ></link>
         <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -39,6 +37,7 @@ https://cdn.jsdelivr.net/npm/source-sans-pro@3.6.0/source-sans-pro.min.css
           href='https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap'
           rel='stylesheet'
         ></link>
+        <link rel='icon' href='/logo-circle.png' />
       </head>
 
       <body className='flex h-fit flex-col bg-background font-body text-textPrimary'>

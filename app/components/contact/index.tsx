@@ -35,8 +35,8 @@ export const Contact = () => {
       <Heading className='text-center text-6xl'>Contact Me</Heading>
       <Main>
         <div className='px-12 md:px-0 lg:px-12'>
-          <Image
-            src='logo-circle.png'
+          <img
+            src='/logo-circle.png'
             alt='Shivam Kumar'
             className={'aspect-square w-full'}
           />

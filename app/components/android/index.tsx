@@ -20,7 +20,7 @@ import { ProjectsPane } from '../layout/ProjectsPane';
 import { SkillTile } from './SkillTile';
 import { Project } from '../project';
 import { IProject } from '@/app/model/IProject';
-import { android } from '@/app/model/data';
+import { android, backend } from '@/app/model/data';
 
 export const Android = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -80,8 +80,8 @@ export const Android = () => {
     <Page id={'android'} ref={ref}>
       <SubHeading className='text-center'>and an</SubHeading>
       <Heading className='text-center text-6xl'>Android Developer</Heading>
-      <div className='flex h-full w-full flex-row'>
-        <Main className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}>
+      <div className='relative grid h-full w-full items-center'>
+        <Main>
           <SkillsPane carousel={carousel}>
             <div className='relative grid grid-cols-2 grid-rows-2 gap-32 '>
               <SkillTile showAnimation={showAnimation}>
@@ -107,12 +107,10 @@ export const Android = () => {
 
           <ProjectsPane>{projects}</ProjectsPane>
         </Main>
-        {selectedProject && (
-          <Project
-            project={selectedProject}
-            closeProject={() => setSelectedProject(null)}
-          />
-        )}
+        <Project
+          project={selectedProject}
+          closeProject={() => setSelectedProject(null)}
+        />
       </div>
     </Page>
   );

@@ -86,8 +86,8 @@ export const Frontend = () => {
 
   return (
     <>
-      <Image
-        src='logo-circle.png'
+      <img
+        src='/logo-circle.png'
         alt='Shivam Kumar'
         onClick={scrollToTop}
         className={`${
@@ -105,16 +105,14 @@ export const Frontend = () => {
           <Heading className='text-center text-6xl'>
             Frontend Web Developer
           </Heading>
-          <div className='relative flex h-full w-full flex-row'>
-            <Main
-              className={`${selectedProject ? 'w-0' : 'w-full opacity-100'}`}
-            >
-              <div className='skills__pane relative aspect-square w-full'>
+          <div className='relative grid h-full w-full items-center'>
+            <Main>
+              <div className='skills__pane relative h-full w-full'>
                 <div className='carousel'>{carousel}</div>
                 <div
                   className={`${
                     showAnimation ? 'skills-translate' : 'skills-bottom'
-                  } relative h-full w-full rotate-45 transition-all duration-1000 ease-in-out`}
+                  } relative aspect-square w-full rotate-45 transition-all duration-1000 ease-in-out`}
                 >
                   <div
                     className={`github-box-shadow absolute left-1/2 top-1/2 grid aspect-square w-32 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full`}
@@ -195,12 +193,11 @@ export const Frontend = () => {
                 <div className='h-full w-full'>{projects}</div>
               </div>
             </Main>
-            {selectedProject && (
-              <Project
-                project={selectedProject}
-                closeProject={() => setSelectedProject(null)}
-              />
-            )}
+
+            <Project
+              project={selectedProject}
+              closeProject={() => setSelectedProject(null)}
+            />
           </div>
         </div>
       </section>
