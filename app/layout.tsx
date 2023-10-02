@@ -41,7 +41,7 @@ export default function RootLayout({
       </head>
 
       <body className='flex h-fit flex-col bg-background font-body text-textPrimary'>
-        <nav className='fixed left-1/2 top-4 z-50 mx-auto hidden -translate-x-1/2 flex-row px-8 py-4 sm:flex'>
+        <nav className='fixed left-1/2 top-4 z-50 mx-auto hidden -translate-x-1/2 flex-row px-8 py-4 md:flex'>
           <ul className='flex flex-row gap-x-4  text-lg font-semibold text-textSecondary'>
             <li
               className='cursor-pointer transition-all duration-200 ease-out hover:text-darkTextPrimary hover:drop-shadow-sm '
@@ -61,21 +61,21 @@ export default function RootLayout({
             >
               Backend
             </li>
-            <li
+            {/* <li
               className='cursor-pointer transition-all duration-200 ease-out hover:text-darkTextPrimary hover:drop-shadow-sm'
               onClick={() => navHandler(4.3)}
             >
               Android
-            </li>
+            </li> */}
             <li
               className='cursor-pointer transition-all duration-200 ease-out hover:text-darkTextPrimary hover:drop-shadow-sm'
-              onClick={() => navHandler(5.8)}
+              onClick={() => navHandler(4.3)}
             >
               Flutter
             </li>
             <li
               className='cursor-pointer transition-all duration-200 ease-out hover:text-darkTextPrimary hover:drop-shadow-sm'
-              onClick={() => navHandler(7.2)}
+              onClick={() => navHandler(5.8)}
             >
               Contact
             </li>
@@ -83,7 +83,7 @@ export default function RootLayout({
         </nav>
         <div
           onClick={toggleNav}
-          className='fixed right-9  top-4 z-[49] h-8  w-8 cursor-pointer uppercase sm:hidden'
+          className='fixed right-9  top-4 z-[49] h-8  w-8 cursor-pointer uppercase md:hidden'
         >
           Menu
         </div>
@@ -108,11 +108,11 @@ export default function RootLayout({
                 Backend
               </a>
             </li>
-            <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
+            {/* <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
               <a href={'#android'} onClick={toggleNav}>
                 Android
               </a>
-            </li>
+            </li> */}
             <li className='w-72 cursor-pointer rounded py-2 text-center transition-all duration-200  ease-out hover:bg-textSecondary hover:text-darkTextPrimary hover:drop-shadow-sm'>
               <a href={'#flutter'} onClick={toggleNav}>
                 Flutter

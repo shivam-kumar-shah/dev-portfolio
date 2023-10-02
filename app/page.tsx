@@ -17,7 +17,7 @@ export default function Home() {
       <Intro />
       <Frontend />
       <Backend />
-      <Android />
+      {/* <Android /> */}
       <Flutter />
       <Contact />
     </>

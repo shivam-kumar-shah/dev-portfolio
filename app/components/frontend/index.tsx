@@ -67,7 +67,7 @@ export const Frontend = () => {
   const projects = frontend.map((item, index) => (
     <ProjectTile
       bringToFocus={() => {
-        bringToFocus(0);
+        bringToFocus(index);
       }}
       project={item}
       resetFocus={resetFocus}
@@ -105,7 +105,7 @@ export const Frontend = () => {
           <Heading className='text-center text-6xl'>
             Frontend Web Developer
           </Heading>
-          <div className='relative grid h-full w-full items-center'>
+          <div className='relative h-full w-full'>
             <Main>
               <div className='skills__pane relative h-full w-full'>
                 <div className='carousel'>{carousel}</div>
@@ -186,8 +186,8 @@ export const Frontend = () => {
                   </div>
                 </div>
               </div>
-              <div className='h-full w-full px-8 text-2xl'>
-                <h3 className='mb-4 font-title text-3xl font-bold uppercase text-darkTextPrimary md:px-0'>
+              <div className='grid h-full w-full px-8 text-2xl'>
+                <h3 className='mb-4 mt-auto h-fit font-title text-3xl font-bold uppercase text-darkTextPrimary md:px-0'>
                   Projects
                 </h3>
                 <div className='h-full w-full'>{projects}</div>

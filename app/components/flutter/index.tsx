@@ -60,7 +60,7 @@ export const Flutter = () => {
   const projects = flutter.map((item, index) => (
     <ProjectTile
       bringToFocus={() => {
-        bringToFocus(0);
+        bringToFocus(index);
       }}
       project={item}
       resetFocus={resetFocus}

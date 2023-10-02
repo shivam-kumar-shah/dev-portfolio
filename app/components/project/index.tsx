@@ -34,7 +34,7 @@ export const Project = ({ project, className, closeProject }: Props) => {
             />
             <a
               className='overlay'
-              href=''
+              href={project.deploymentLink}
               target='_blank'
               title='project-title'
             >
@@ -63,9 +63,12 @@ export const Project = ({ project, className, closeProject }: Props) => {
                 </SubHeading>
               </a>
             </div>
-            <div className='project__content mt-6 text-darkTextSecondary'>
-              {project?.summary}
-            </div>
+            <div
+              className='project__content mt-6 text-darkTextSecondary'
+              dangerouslySetInnerHTML={{
+                __html: project.summary.replace(/\n/g, '<br/>'),
+              }}
+            ></div>
           </div>
         </Main>
       )}

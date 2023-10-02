@@ -65,7 +65,7 @@ export const Android = () => {
   const projects = android.map((item, index) => (
     <ProjectTile
       bringToFocus={() => {
-        bringToFocus(0);
+        bringToFocus(index);
       }}
       project={item}
       resetFocus={resetFocus}

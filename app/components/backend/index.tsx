@@ -61,7 +61,7 @@ export const Backend = () => {
   const projects = backend.map((item, index) => (
     <ProjectTile
       bringToFocus={() => {
-        bringToFocus(0);
+        bringToFocus(index);
       }}
       project={item}
       resetFocus={resetFocus}
