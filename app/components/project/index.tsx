@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Main } from '../layout/Main';
 import { RxOpenInNewWindow, RxGithubLogo, RxCross1 } from 'react-icons/rx';
 import Heading from '../ui/Heading';
 import SubHeading from '../ui/SubHeading';
 import { IProject } from '@/app/model/IProject';
-import Image from 'next/image';
+import Markdown from 'react-markdown';
 
 type Props = {
   className?: string;
@@ -13,6 +13,18 @@ type Props = {
 };
 
 export const Project = ({ project, className, closeProject }: Props) => {
+  const [markdown, setMarkdown] = useState('');
+  useEffect(() => {
+    if (!project) return;
+    fetch(project.readmePath)
+      .then((response) => {
+        const text = response.text();
+        console.log(text);
+        return text;
+      })
+      .then((text) => setMarkdown(text));
+  }, [project]);
+
   return (
     <div
       className={`absolute top-0 z-50 grid h-full w-full overflow-hidden transition-all duration-300 ease-in-out ${
@@ -63,12 +75,9 @@ export const Project = ({ project, className, closeProject }: Props) => {
                 </SubHeading>
               </a>
             </div>
-            <div
-              className='project__content mt-6 text-darkTextSecondary'
-              dangerouslySetInnerHTML={{
-                __html: project.summary.replace(/\n/g, '<br/>'),
-              }}
-            ></div>
+            <div className='project__content mt-6 text-darkTextSecondary'>
+              <Markdown className={'prose prose-invert'}>{markdown}</Markdown>
+            </div>
           </div>
         </Main>
       )}
