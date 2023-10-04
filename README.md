@@ -13,7 +13,7 @@ Welcome to my developer portfolio! I'm Shivam Kumar Shah, a passionate developer
 
 - 📖 I’m currently learning **DevOps**
 
-- 🫣 All of my projects are available on [My Portfolio Website](https://storied-madeleine-fcf12f.netlify.app/)
+- 🫣 All of my projects are available on [My Portfolio Website](https://shivam-shah.netlify.app/)
 
 - 💬 Lets discuss **React JS, Express, Flutter**
 
@@ -23,7 +23,7 @@ Welcome to my developer portfolio! I'm Shivam Kumar Shah, a passionate developer
 
 To explore my portfolio and projects, follow these steps:
 
-1. Visit [Shivam Kumar's Portfolio](https://storied-madeleine-fcf12f.netlify.app/).
+1. Visit [Shivam Kumar's Portfolio](https://shivam-shah.netlify.app/).
 2. Browse through the projects listed on the portfolio.
 3. Click on the project titles to view detailed information and GitHub repositories.
 
